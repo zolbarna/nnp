@@ -1,0 +1,21 @@
+#!/bin/sh
+echo "*** NUT upsd startup ***"
+
+chmod 440 /etc/nut/*
+
+printf "Starting NGINX on port 9199 ...\n"
+/usr/sbin/nginx || { printf "NGINX failed\n"; exit; }
+
+printf "Starting php-fpm8...\n"
+/usr/sbin/php-fpm8 || { print "PHP-FPM8 failed\n"; exit; }
+
+# initialize UPS driver
+printf "Starting up the UPS drivers ...\n"
+rm /var/run/nut/nutdrv_qx-effekta.pid
+/usr/sbin/upsdrvctl -u root start || { printf "ERROR on driver startup.\n"; exit; }
+
+# run the ups daemon
+printf "Starting up the UPS daemon ...\n"
+/usr/sbin/upsd -4 -u root
+
+while true; do date | tr -d '\n';echo " " | tr -d '\n'; upsc effekta@127.0.0.1 2>&1| grep battery.charge;sleep 10; done;
