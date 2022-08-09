@@ -17,10 +17,13 @@ RUN mkdir -p /var/run/nut && \
 
 COPY conf/start.sh /start.sh
 COPY conf/status.sh /status.sh
+
 COPY conf/default.cnf /etc/nginx/http.d/default.conf
+COPY conf/index.php /usr/share/nginx/www/index.php
+
 RUN chmod 700 /start.sh
 RUN chmod 700 /status.sh
-
+RUN chmod 644 /usr/share/nginx/www/index.php
 CMD ["/start.sh"]
 
 ENTRYPOINT [""]
