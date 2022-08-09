@@ -1,6 +1,7 @@
 #!/bin/sh
 
 STOPIT=0
+LOGSEQUENCE=0
 
 function sig_term {
 #  echo "Sigterm caught"
@@ -9,15 +10,23 @@ function sig_term {
 
 trap sig_term SIGTERM
 
+date | tr -d '\n' 
+echo " Checking data form $UPS"
+
 while true
 do 
-	date | tr -d '\n'
 	if [ $STOPIT -eq 1 ]
-	then 
+	then
 		echo ' Initiate terminating sequence...'
 		break
 		fi
-		echo ' ' | tr -d '\n'
-		upsc effekta@127.0.0.1 2>&1| grep battery.charge
+		if [ $LOGSEQUENCE -eq 6 ]
+		then
+			date | tr -d '\n'
+			echo ' ' | tr -d '\n'
+			upsc $UPS@127.0.0.1 2>&1| grep battery.charge
+			LOGSEQUENCE=1
+		fi
+		let "LOGSEQUENCE=LOGSEQUENCE+1"
 		sleep 10
 done
