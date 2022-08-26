@@ -5,6 +5,7 @@ LOGSEQUENCE=0
 
 function sig_term {
 #  echo "Sigterm caught"
+#
   STOPIT=1
 }
 
