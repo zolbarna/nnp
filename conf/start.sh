@@ -19,6 +19,7 @@ sleep 3
 
 # run the ups daemon
 printf "Starting up the UPS daemon ...\n"
+rm /var/run/nut/upsd.pid
 exec /usr/sbin/upsd -4 -u root &
 sleep 5
 exec /status.sh
