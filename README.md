@@ -72,7 +72,8 @@ http://localhost:9199/index.php?ups=effekta
 
 >[FYI]
 
-Check where is your device is sitting: (0665:5161) so we have to pass this device to the container.
+Check where is your device is sitting: (0665:5161) and modify the --device parameter
+
 Alternatively you can use --privileged option instead of a --device. (Insecure way)
 lsusb
 
