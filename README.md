@@ -1,7 +1,7 @@
 # nnp  
 Dockerized NUT, with prometheus exporter
 
-The main idea is creating a container which can collect a monitoring data from a UPS via NUT, and also provides a timeseries data for prometheus. The data conversion is happening on-the-fly with a NGINX+PHP which directly calling the UPSC with a NAME of your UPS defined in the nut.conf.  
+The main idea is creating a container to collect a data from a UPS via NUT. After a small align these datas avaliable for prometheus scraping.
 
 For example if your UPS name defined as "effekta" you can collect a metric with prometheus via the following url:
 
