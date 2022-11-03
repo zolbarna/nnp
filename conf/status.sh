@@ -21,7 +21,7 @@ do
 		echo ' Initiate terminating sequence...'
 		break
 		fi
-		if [ $LOGSEQUENCE -eq 6 ]
+		if [ $LOGSEQUENCE -eq 600 ]
 		then
 			date | tr -d '\n'
 			echo ' ' | tr -d '\n'
