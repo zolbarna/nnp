@@ -97,3 +97,5 @@ docker run -d\
  -v /your_nut_config:/etc/nut\
  -name nut\
  nnp_090822_2040
+
+![Graphana](https://raw.githubusercontent.com/zolbarna/nnp/main/grafana.JPG)
