@@ -98,4 +98,4 @@ docker run -d\
  -name nut\
  nnp_090822_2040
 
-![Graphana](https://raw.githubusercontent.com/zolbarna/nnp/main/grafana.JPG)
+![Grafana](https://raw.githubusercontent.com/zolbarna/nnp/main/grafana.JPG)
