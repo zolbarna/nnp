@@ -26,6 +26,7 @@ RUN mkdir -p /var/run/nut && \
 COPY conf/start.sh /start.sh
 COPY conf/status.sh /status.sh
 
+COPY conf/nut/* /etc/nut/
 COPY conf/www.conf /etc/php8/php-fpm.d/www.conf
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/default.conf /etc/nginx/http.d/default.conf
