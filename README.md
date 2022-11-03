@@ -31,12 +31,12 @@ Bus 002 Device 002: ID 0627:0001 Adomax Technology Co., Ltd QEMU USB Tablet<br>
 Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub<br>
 
 Nut config files located externaly. In my example it's located at /media/Config/Nnp
-- nut.conf<br>
-- ups.conf<br>
-- upsd.conf<br>
-- upsd.users<br>
-- upsmon.conf<br>
-- upssched.conf<br>
+- nut.conf
+- ups.conf
+- upsd.conf
+- upsd.users
+- upsmon.conf
+- upssched.conf
 
 #Example:
 
