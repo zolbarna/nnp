@@ -1,2 +1,3 @@
 NGINX PORT 9100
 docker run -d -i -p 3493:3493 -p 9199:9199 --privileged -v /media/Config/Nnp/nut:/etc/nut
+#docker run -d --restart unless-stopped --stop-timeout 15 -e UPS='effekta' -p 3493:3493 -p 9199:9199 --device /dev/ups_device -v /media/Config/Nnp:/etc/nut --name nnp nnp_130822_1705

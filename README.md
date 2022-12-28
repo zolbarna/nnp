@@ -116,6 +116,6 @@ chmod 644 /etc/udev/rules.d/99-usb-rules.rules\
 udevadm trigger --attr-match=subsystem=usb\
 ls -l /dev/ups_device
 
-after a restart /dev/ups_device should be persistent
-
+after a restart /dev/ups_device should be persistent<br>
+docker run -d --restart unless-stopped --stop-timeout 15 -e UPS='effekta' -p 3493:3493 -p 9199:9199 --device /dev/ups_device --name nnp nnp_031122_1836
 
