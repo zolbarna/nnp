@@ -99,3 +99,23 @@ docker run -d\
  nnp_090822_2040
 
 ![Grafana](https://raw.githubusercontent.com/zolbarna/nnp/main/grafana.JPG)
+
+As it turned out the UPS device liable to roaming between the USB ports after a restart. 
+
+To fix it: 
+
+lsusb --> Find your device port\
+udevadm info -a -n /dev/bus/usb/002/002 --> check device idVendor;idProduct, 
+
+Create a file: 
+
+vim /etc/udev/rules.d/99-usb-rules.rules\
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0665", ATTRS{idProduct}=="5161", SYMLINK+="ups_device"
+
+chmod 644 /etc/udev/rules.d/99-usb-rules.rules\
+udevadm trigger --attr-match=subsystem=usb\
+ls -l /dev/ups_device
+
+after a restart /dev/ups_device should be persistent
+
+
