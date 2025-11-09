@@ -90,9 +90,11 @@ You can pass your own config files with your ones:
 docker run -d\
  --restart unless-stopped\
  --stop-timeout 15\
+ 
  -e UPS='effekta'
  -p 3493:3493\
  -p 9199:9199\
+ --ulimit nofile=8192:8192 \
  --device /dev/bus/usb/003/002\
  -v /your_nut_config:/etc/nut\
  -name nut\
@@ -117,5 +119,6 @@ udevadm trigger --attr-match=subsystem=usb\
 ls -l /dev/ups_device
 
 after a restart /dev/ups_device should be persistent
+
 
 
