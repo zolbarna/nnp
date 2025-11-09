@@ -60,6 +60,7 @@ docker run -d\
  -e UPS='effekta'
  -p 3493:3493\
  -p 9199:9199\
+ --ulimit nofile=8192:8192 \
  --device /dev/bus/usb/003/002\
  -name nut\
  your_image_name
@@ -119,6 +120,7 @@ udevadm trigger --attr-match=subsystem=usb\
 ls -l /dev/ups_device
 
 after a restart /dev/ups_device should be persistent
+
 
 
 
